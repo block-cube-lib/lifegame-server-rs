@@ -1,0 +1,13 @@
+[package]
+name = "grpc_rs"
+version = "0.1.0"
+authors = ["block"]
+edition = "2018"
+
+[dependencies]
+grpcio = { version = "0.4", default-features = false, features = ["protobuf-codec"] }
+protobuf = "~2.0"
+futures = "*"
+log = "0.4"
+env_logger = "0.6"
+rand = "*"

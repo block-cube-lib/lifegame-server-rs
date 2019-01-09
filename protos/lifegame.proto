@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package lifegame;
+
+service LifeGame {
+  rpc GetFieldSize (FieldSizeRequest) returns (FieldSizeResponse) {}
+
+  rpc GetCells(CellsRequest) returns (CellsResponse) {}
+
+  rpc Update(UpdateRequest) returns (UpdateResponse) {}
+
+  rpc ResetCells(ResetRequest) returns (ResetResponse) {}
+}
+
+message FieldSizeRequest {
+}
+
+message FieldSizeResponse {
+  uint32 width = 1;
+  uint32 height = 2;
+}
+
+enum Cell {
+  Alive = 0;
+  Dead = 1;
+}
+
+message CellsRequest {
+}
+
+message CellsResponse {
+  repeated Cell cells = 1;
+}
+
+message UpdateRequest {
+}
+
+message UpdateResponse {
+  repeated Cell cells = 1;
+}
+
+message ResetRequest {
+}
+
+message ResetResponse {
+}
