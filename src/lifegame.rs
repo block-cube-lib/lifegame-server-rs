@@ -615,288 +615,6 @@ impl ::protobuf::reflect::ProtobufValue for CellsResponse {
 }
 
 #[derive(PartialEq,Clone,Default)]
-pub struct UpdateRequest {
-    // special fields
-    pub unknown_fields: ::protobuf::UnknownFields,
-    pub cached_size: ::protobuf::CachedSize,
-}
-
-impl UpdateRequest {
-    pub fn new() -> UpdateRequest {
-        ::std::default::Default::default()
-    }
-}
-
-impl ::protobuf::Message for UpdateRequest {
-    fn is_initialized(&self) -> bool {
-        true
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
-    // Compute sizes of nested messages
-    #[allow(unused_variables)]
-    fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
-        self.cached_size.set(my_size);
-        my_size
-    }
-
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
-        os.write_unknown_fields(self.get_unknown_fields())?;
-        ::std::result::Result::Ok(())
-    }
-
-    fn get_cached_size(&self) -> u32 {
-        self.cached_size.get()
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
-    }
-
-    fn as_any(&self) -> &::std::any::Any {
-        self as &::std::any::Any
-    }
-    fn as_any_mut(&mut self) -> &mut ::std::any::Any {
-        self as &mut ::std::any::Any
-    }
-    fn into_any(self: Box<Self>) -> ::std::boxed::Box<::std::any::Any> {
-        self
-    }
-
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        Self::descriptor_static()
-    }
-
-    fn new() -> UpdateRequest {
-        UpdateRequest::new()
-    }
-
-    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                let fields = ::std::vec::Vec::new();
-                ::protobuf::reflect::MessageDescriptor::new::<UpdateRequest>(
-                    "UpdateRequest",
-                    fields,
-                    file_descriptor_proto()
-                )
-            })
-        }
-    }
-
-    fn default_instance() -> &'static UpdateRequest {
-        static mut instance: ::protobuf::lazy::Lazy<UpdateRequest> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const UpdateRequest,
-        };
-        unsafe {
-            instance.get(UpdateRequest::new)
-        }
-    }
-}
-
-impl ::protobuf::Clear for UpdateRequest {
-    fn clear(&mut self) {
-        self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for UpdateRequest {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
-    }
-}
-
-impl ::protobuf::reflect::ProtobufValue for UpdateRequest {
-    fn as_ref(&self) -> ::protobuf::reflect::ProtobufValueRef {
-        ::protobuf::reflect::ProtobufValueRef::Message(self)
-    }
-}
-
-#[derive(PartialEq,Clone,Default)]
-pub struct UpdateResponse {
-    // message fields
-    pub cells: ::std::vec::Vec<Cell>,
-    // special fields
-    pub unknown_fields: ::protobuf::UnknownFields,
-    pub cached_size: ::protobuf::CachedSize,
-}
-
-impl UpdateResponse {
-    pub fn new() -> UpdateResponse {
-        ::std::default::Default::default()
-    }
-
-    // repeated .lifegame.Cell cells = 1;
-
-    pub fn clear_cells(&mut self) {
-        self.cells.clear();
-    }
-
-    // Param is passed by value, moved
-    pub fn set_cells(&mut self, v: ::std::vec::Vec<Cell>) {
-        self.cells = v;
-    }
-
-    // Mutable pointer to the field.
-    pub fn mut_cells(&mut self) -> &mut ::std::vec::Vec<Cell> {
-        &mut self.cells
-    }
-
-    // Take field
-    pub fn take_cells(&mut self) -> ::std::vec::Vec<Cell> {
-        ::std::mem::replace(&mut self.cells, ::std::vec::Vec::new())
-    }
-
-    pub fn get_cells(&self) -> &[Cell] {
-        &self.cells
-    }
-}
-
-impl ::protobuf::Message for UpdateResponse {
-    fn is_initialized(&self) -> bool {
-        true
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_repeated_enum_with_unknown_fields_into(wire_type, is, &mut self.cells, 1, &mut self.unknown_fields)?
-                },
-                _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
-    // Compute sizes of nested messages
-    #[allow(unused_variables)]
-    fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
-        for value in &self.cells {
-            my_size += ::protobuf::rt::enum_size(1, *value);
-        };
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
-        self.cached_size.set(my_size);
-        my_size
-    }
-
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
-        for v in &self.cells {
-            os.write_enum(1, v.value())?;
-        };
-        os.write_unknown_fields(self.get_unknown_fields())?;
-        ::std::result::Result::Ok(())
-    }
-
-    fn get_cached_size(&self) -> u32 {
-        self.cached_size.get()
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
-    }
-
-    fn as_any(&self) -> &::std::any::Any {
-        self as &::std::any::Any
-    }
-    fn as_any_mut(&mut self) -> &mut ::std::any::Any {
-        self as &mut ::std::any::Any
-    }
-    fn into_any(self: Box<Self>) -> ::std::boxed::Box<::std::any::Any> {
-        self
-    }
-
-    fn descriptor(&self) -> &'static ::protobuf::reflect::MessageDescriptor {
-        Self::descriptor_static()
-    }
-
-    fn new() -> UpdateResponse {
-        UpdateResponse::new()
-    }
-
-    fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
-        static mut descriptor: ::protobuf::lazy::Lazy<::protobuf::reflect::MessageDescriptor> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const ::protobuf::reflect::MessageDescriptor,
-        };
-        unsafe {
-            descriptor.get(|| {
-                let mut fields = ::std::vec::Vec::new();
-                fields.push(::protobuf::reflect::accessor::make_vec_accessor::<_, ::protobuf::types::ProtobufTypeEnum<Cell>>(
-                    "cells",
-                    |m: &UpdateResponse| { &m.cells },
-                    |m: &mut UpdateResponse| { &mut m.cells },
-                ));
-                ::protobuf::reflect::MessageDescriptor::new::<UpdateResponse>(
-                    "UpdateResponse",
-                    fields,
-                    file_descriptor_proto()
-                )
-            })
-        }
-    }
-
-    fn default_instance() -> &'static UpdateResponse {
-        static mut instance: ::protobuf::lazy::Lazy<UpdateResponse> = ::protobuf::lazy::Lazy {
-            lock: ::protobuf::lazy::ONCE_INIT,
-            ptr: 0 as *const UpdateResponse,
-        };
-        unsafe {
-            instance.get(UpdateResponse::new)
-        }
-    }
-}
-
-impl ::protobuf::Clear for UpdateResponse {
-    fn clear(&mut self) {
-        self.clear_cells();
-        self.unknown_fields.clear();
-    }
-}
-
-impl ::std::fmt::Debug for UpdateResponse {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
-        ::protobuf::text_format::fmt(self, f)
-    }
-}
-
-impl ::protobuf::reflect::ProtobufValue for UpdateResponse {
-    fn as_ref(&self) -> ::protobuf::reflect::ProtobufValueRef {
-        ::protobuf::reflect::ProtobufValueRef::Message(self)
-    }
-}
-
-#[derive(PartialEq,Clone,Default)]
 pub struct ResetRequest {
     // special fields
     pub unknown_fields: ::protobuf::UnknownFields,
@@ -1196,56 +914,45 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     \"A\n\x11FieldSizeResponse\x12\x14\n\x05width\x18\x01\x20\x01(\rR\x05wid\
     th\x12\x16\n\x06height\x18\x02\x20\x01(\rR\x06height\"\x0e\n\x0cCellsReq\
     uest\"5\n\rCellsResponse\x12$\n\x05cells\x18\x01\x20\x03(\x0e2\x0e.lifeg\
-    ame.CellR\x05cells\"\x0f\n\rUpdateRequest\"6\n\x0eUpdateResponse\x12$\n\
-    \x05cells\x18\x01\x20\x03(\x0e2\x0e.lifegame.CellR\x05cells\"\x0e\n\x0cR\
-    esetRequest\"\x0f\n\rResetResponse*\x1b\n\x04Cell\x12\t\n\x05Alive\x10\0\
-    \x12\x08\n\x04Dead\x10\x012\x94\x02\n\x08LifeGame\x12I\n\x0cGetFieldSize\
-    \x12\x1a.lifegame.FieldSizeRequest\x1a\x1b.lifegame.FieldSizeResponse\"\
-    \0\x12=\n\x08GetCells\x12\x16.lifegame.CellsRequest\x1a\x17.lifegame.Cel\
-    lsResponse\"\0\x12=\n\x06Update\x12\x17.lifegame.UpdateRequest\x1a\x18.l\
-    ifegame.UpdateResponse\"\0\x12?\n\nResetCells\x12\x16.lifegame.ResetRequ\
-    est\x1a\x17.lifegame.ResetResponse\"\0J\xd0\x06\n\x06\x12\x04\0\0-\x01\n\
-    \x08\n\x01\x0c\x12\x03\0\0\x12\n\x08\n\x01\x02\x12\x03\x02\x08\x10\n\n\n\
-    \x02\x06\0\x12\x04\x04\0\x0c\x01\n\n\n\x03\x06\0\x01\x12\x03\x04\x08\x10\
-    \n\x0b\n\x04\x06\0\x02\0\x12\x03\x05\x02D\n\x0c\n\x05\x06\0\x02\0\x01\
-    \x12\x03\x05\x06\x12\n\x0c\n\x05\x06\0\x02\0\x02\x12\x03\x05\x14$\n\x0c\
-    \n\x05\x06\0\x02\0\x03\x12\x03\x05/@\n\x0b\n\x04\x06\0\x02\x01\x12\x03\
-    \x07\x027\n\x0c\n\x05\x06\0\x02\x01\x01\x12\x03\x07\x06\x0e\n\x0c\n\x05\
-    \x06\0\x02\x01\x02\x12\x03\x07\x0f\x1b\n\x0c\n\x05\x06\0\x02\x01\x03\x12\
-    \x03\x07&3\n\x0b\n\x04\x06\0\x02\x02\x12\x03\t\x027\n\x0c\n\x05\x06\0\
-    \x02\x02\x01\x12\x03\t\x06\x0c\n\x0c\n\x05\x06\0\x02\x02\x02\x12\x03\t\r\
-    \x1a\n\x0c\n\x05\x06\0\x02\x02\x03\x12\x03\t%3\n\x0b\n\x04\x06\0\x02\x03\
-    \x12\x03\x0b\x029\n\x0c\n\x05\x06\0\x02\x03\x01\x12\x03\x0b\x06\x10\n\
-    \x0c\n\x05\x06\0\x02\x03\x02\x12\x03\x0b\x11\x1d\n\x0c\n\x05\x06\0\x02\
-    \x03\x03\x12\x03\x0b(5\n\n\n\x02\x04\0\x12\x04\x0e\0\x0f\x01\n\n\n\x03\
-    \x04\0\x01\x12\x03\x0e\x08\x18\n\n\n\x02\x04\x01\x12\x04\x11\0\x14\x01\n\
-    \n\n\x03\x04\x01\x01\x12\x03\x11\x08\x19\n\x0b\n\x04\x04\x01\x02\0\x12\
-    \x03\x12\x02\x13\n\r\n\x05\x04\x01\x02\0\x04\x12\x04\x12\x02\x11\x1b\n\
-    \x0c\n\x05\x04\x01\x02\0\x05\x12\x03\x12\x02\x08\n\x0c\n\x05\x04\x01\x02\
-    \0\x01\x12\x03\x12\t\x0e\n\x0c\n\x05\x04\x01\x02\0\x03\x12\x03\x12\x11\
-    \x12\n\x0b\n\x04\x04\x01\x02\x01\x12\x03\x13\x02\x14\n\r\n\x05\x04\x01\
-    \x02\x01\x04\x12\x04\x13\x02\x12\x13\n\x0c\n\x05\x04\x01\x02\x01\x05\x12\
-    \x03\x13\x02\x08\n\x0c\n\x05\x04\x01\x02\x01\x01\x12\x03\x13\t\x0f\n\x0c\
-    \n\x05\x04\x01\x02\x01\x03\x12\x03\x13\x12\x13\n\n\n\x02\x05\0\x12\x04\
-    \x16\0\x19\x01\n\n\n\x03\x05\0\x01\x12\x03\x16\x05\t\n\x0b\n\x04\x05\0\
-    \x02\0\x12\x03\x17\x02\x0c\n\x0c\n\x05\x05\0\x02\0\x01\x12\x03\x17\x02\
-    \x07\n\x0c\n\x05\x05\0\x02\0\x02\x12\x03\x17\n\x0b\n\x0b\n\x04\x05\0\x02\
-    \x01\x12\x03\x18\x02\x0b\n\x0c\n\x05\x05\0\x02\x01\x01\x12\x03\x18\x02\
-    \x06\n\x0c\n\x05\x05\0\x02\x01\x02\x12\x03\x18\t\n\n\n\n\x02\x04\x02\x12\
-    \x04\x1b\0\x1c\x01\n\n\n\x03\x04\x02\x01\x12\x03\x1b\x08\x14\n\n\n\x02\
-    \x04\x03\x12\x04\x1e\0\x20\x01\n\n\n\x03\x04\x03\x01\x12\x03\x1e\x08\x15\
-    \n\x0b\n\x04\x04\x03\x02\0\x12\x03\x1f\x02\x1a\n\x0c\n\x05\x04\x03\x02\0\
-    \x04\x12\x03\x1f\x02\n\n\x0c\n\x05\x04\x03\x02\0\x06\x12\x03\x1f\x0b\x0f\
-    \n\x0c\n\x05\x04\x03\x02\0\x01\x12\x03\x1f\x10\x15\n\x0c\n\x05\x04\x03\
-    \x02\0\x03\x12\x03\x1f\x18\x19\n\n\n\x02\x04\x04\x12\x04\"\0#\x01\n\n\n\
-    \x03\x04\x04\x01\x12\x03\"\x08\x15\n\n\n\x02\x04\x05\x12\x04%\0'\x01\n\n\
-    \n\x03\x04\x05\x01\x12\x03%\x08\x16\n\x0b\n\x04\x04\x05\x02\0\x12\x03&\
-    \x02\x1a\n\x0c\n\x05\x04\x05\x02\0\x04\x12\x03&\x02\n\n\x0c\n\x05\x04\
-    \x05\x02\0\x06\x12\x03&\x0b\x0f\n\x0c\n\x05\x04\x05\x02\0\x01\x12\x03&\
-    \x10\x15\n\x0c\n\x05\x04\x05\x02\0\x03\x12\x03&\x18\x19\n\n\n\x02\x04\
-    \x06\x12\x04)\0*\x01\n\n\n\x03\x04\x06\x01\x12\x03)\x08\x14\n\n\n\x02\
-    \x04\x07\x12\x04,\0-\x01\n\n\n\x03\x04\x07\x01\x12\x03,\x08\x15b\x06prot\
-    o3\
+    ame.CellR\x05cells\"\x0e\n\x0cResetRequest\"\x0f\n\rResetResponse*\x1b\n\
+    \x04Cell\x12\t\n\x05Alive\x10\0\x12\x08\n\x04Dead\x10\x012\xd0\x01\n\x08\
+    Lifegame\x12I\n\x0cGetFieldSize\x12\x1a.lifegame.FieldSizeRequest\x1a\
+    \x1b.lifegame.FieldSizeResponse\"\0\x12=\n\x08GetCells\x12\x16.lifegame.\
+    CellsRequest\x1a\x17.lifegame.CellsResponse\"\0\x12:\n\x05Reset\x12\x16.\
+    lifegame.ResetRequest\x1a\x17.lifegame.ResetResponse\"\0J\xa4\x05\n\x06\
+    \x12\x04\0\0$\x01\n\x08\n\x01\x0c\x12\x03\0\0\x12\n\x08\n\x01\x02\x12\
+    \x03\x02\x08\x10\n\n\n\x02\x06\0\x12\x04\x04\0\n\x01\n\n\n\x03\x06\0\x01\
+    \x12\x03\x04\x08\x10\n\x0b\n\x04\x06\0\x02\0\x12\x03\x05\x02D\n\x0c\n\
+    \x05\x06\0\x02\0\x01\x12\x03\x05\x06\x12\n\x0c\n\x05\x06\0\x02\0\x02\x12\
+    \x03\x05\x14$\n\x0c\n\x05\x06\0\x02\0\x03\x12\x03\x05/@\n\x0b\n\x04\x06\
+    \0\x02\x01\x12\x03\x07\x027\n\x0c\n\x05\x06\0\x02\x01\x01\x12\x03\x07\
+    \x06\x0e\n\x0c\n\x05\x06\0\x02\x01\x02\x12\x03\x07\x0f\x1b\n\x0c\n\x05\
+    \x06\0\x02\x01\x03\x12\x03\x07&3\n\x0b\n\x04\x06\0\x02\x02\x12\x03\t\x02\
+    4\n\x0c\n\x05\x06\0\x02\x02\x01\x12\x03\t\x06\x0b\n\x0c\n\x05\x06\0\x02\
+    \x02\x02\x12\x03\t\x0c\x18\n\x0c\n\x05\x06\0\x02\x02\x03\x12\x03\t#0\n\n\
+    \n\x02\x04\0\x12\x04\x0c\0\r\x01\n\n\n\x03\x04\0\x01\x12\x03\x0c\x08\x18\
+    \n\n\n\x02\x04\x01\x12\x04\x0f\0\x12\x01\n\n\n\x03\x04\x01\x01\x12\x03\
+    \x0f\x08\x19\n\x0b\n\x04\x04\x01\x02\0\x12\x03\x10\x02\x13\n\r\n\x05\x04\
+    \x01\x02\0\x04\x12\x04\x10\x02\x0f\x1b\n\x0c\n\x05\x04\x01\x02\0\x05\x12\
+    \x03\x10\x02\x08\n\x0c\n\x05\x04\x01\x02\0\x01\x12\x03\x10\t\x0e\n\x0c\n\
+    \x05\x04\x01\x02\0\x03\x12\x03\x10\x11\x12\n\x0b\n\x04\x04\x01\x02\x01\
+    \x12\x03\x11\x02\x14\n\r\n\x05\x04\x01\x02\x01\x04\x12\x04\x11\x02\x10\
+    \x13\n\x0c\n\x05\x04\x01\x02\x01\x05\x12\x03\x11\x02\x08\n\x0c\n\x05\x04\
+    \x01\x02\x01\x01\x12\x03\x11\t\x0f\n\x0c\n\x05\x04\x01\x02\x01\x03\x12\
+    \x03\x11\x12\x13\n\n\n\x02\x05\0\x12\x04\x14\0\x17\x01\n\n\n\x03\x05\0\
+    \x01\x12\x03\x14\x05\t\n\x0b\n\x04\x05\0\x02\0\x12\x03\x15\x02\x0c\n\x0c\
+    \n\x05\x05\0\x02\0\x01\x12\x03\x15\x02\x07\n\x0c\n\x05\x05\0\x02\0\x02\
+    \x12\x03\x15\n\x0b\n\x0b\n\x04\x05\0\x02\x01\x12\x03\x16\x02\x0b\n\x0c\n\
+    \x05\x05\0\x02\x01\x01\x12\x03\x16\x02\x06\n\x0c\n\x05\x05\0\x02\x01\x02\
+    \x12\x03\x16\t\n\n\n\n\x02\x04\x02\x12\x04\x19\0\x1a\x01\n\n\n\x03\x04\
+    \x02\x01\x12\x03\x19\x08\x14\n\n\n\x02\x04\x03\x12\x04\x1c\0\x1e\x01\n\n\
+    \n\x03\x04\x03\x01\x12\x03\x1c\x08\x15\n\x0b\n\x04\x04\x03\x02\0\x12\x03\
+    \x1d\x02\x1a\n\x0c\n\x05\x04\x03\x02\0\x04\x12\x03\x1d\x02\n\n\x0c\n\x05\
+    \x04\x03\x02\0\x06\x12\x03\x1d\x0b\x0f\n\x0c\n\x05\x04\x03\x02\0\x01\x12\
+    \x03\x1d\x10\x15\n\x0c\n\x05\x04\x03\x02\0\x03\x12\x03\x1d\x18\x19\n\n\n\
+    \x02\x04\x04\x12\x04\x20\0!\x01\n\n\n\x03\x04\x04\x01\x12\x03\x20\x08\
+    \x14\n\n\n\x02\x04\x05\x12\x04#\0$\x01\n\n\n\x03\x04\x05\x01\x12\x03#\
+    \x08\x15b\x06proto3\
 ";
 
 static mut file_descriptor_proto_lazy: ::protobuf::lazy::Lazy<::protobuf::descriptor::FileDescriptorProto> = ::protobuf::lazy::Lazy {

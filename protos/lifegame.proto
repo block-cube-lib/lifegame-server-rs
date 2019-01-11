@@ -2,14 +2,12 @@ syntax = "proto3";
 
 package lifegame;
 
-service LifeGame {
+service Lifegame {
   rpc GetFieldSize (FieldSizeRequest) returns (FieldSizeResponse) {}
 
   rpc GetCells(CellsRequest) returns (CellsResponse) {}
 
-  rpc Update(UpdateRequest) returns (UpdateResponse) {}
-
-  rpc ResetCells(ResetRequest) returns (ResetResponse) {}
+  rpc Reset(ResetRequest) returns (ResetResponse) {}
 }
 
 message FieldSizeRequest {
@@ -29,13 +27,6 @@ message CellsRequest {
 }
 
 message CellsResponse {
-  repeated Cell cells = 1;
-}
-
-message UpdateRequest {
-}
-
-message UpdateResponse {
   repeated Cell cells = 1;
 }
 
